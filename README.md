@@ -1,24 +1,13 @@
-# New Project
+# Snowpack Build without Dev Server
 
-> ✨ Bootstrapped with Create Snowpack App (CSA).
+> Simple example of using Snowpack for unbundled development without using the built-in dev server. Suitable for use in projects that have their own server, such as PHP, Craft CMS, Ruby on Rails, etc.
 
 ## Available Scripts
 
 ### npm start
 
-Runs the app in the development mode.
-Open http://localhost:8080 to view it in the browser.
-
-The page will reload if you make edits.
-You will also see any lint errors in the console.
+Watches for changes in `/src/scripts` and outputs those changes to `/dist/scripts` 
 
 ### npm run build
 
-Builds a static copy of your site to the `build/` folder.
-Your app is ready to be deployed!
-
-**For the best production performance:** Add a build bundler plugin like [@snowpack/plugin-webpack](https://github.com/snowpackjs/snowpack/tree/main/plugins/plugin-webpack) or [snowpack-plugin-rollup-bundle](https://github.com/ParamagicDev/snowpack-plugin-rollup-bundle) to your `snowpack.config.json` config file.
-
-### Q: What about Eject?
-
-No eject needed! Snowpack guarantees zero lock-in, and CSA strives for the same.
+Bundles and minifies files to the `/dist` folder using [esbuild](https://github.com/evanw/esbuild).

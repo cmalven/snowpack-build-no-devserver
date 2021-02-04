@@ -1,27 +1,23 @@
 /** @type {import("snowpack").SnowpackUserConfig } */
 module.exports = {
   mount: {
-    public: {url: '/', static: true},
-    src: {url: '/dist'},
+    'src/scripts': {url: '/scripts'},
   },
   plugins: [
-    /* ... */
-  ],
-  routes: [
-    /* Enable an SPA Fallback in development: */
-    // {"match": "routes", "src": ".*", "dest": "/index.html"},
+    '@snowpack/plugin-babel',
+    ['snowpack-plugin-raw-file-loader', {
+      exts: ['.glsl'],
+    }],
   ],
   optimize: {
-    /* Example: Bundle your final build: */
-    // "bundle": true,
-  },
-  packageOptions: {
-    /* ... */
-  },
-  devOptions: {
-    /* ... */
+    entrypoints: [
+      'scripts/index.js',
+    ],
+    bundle: true,
+    minify: true,
+    target: 'es2018',
   },
   buildOptions: {
-    /* ... */
+    out: 'dist',
   },
 };
